@@ -55,8 +55,10 @@
 - Figma
 
 ### IA (Information Architecture)
-![image]()
+
+<img src = "docs/architecture.gif" width="700px">
 
 
 ### ERD 설계
-![image]()
+
+<img src = "docs/erd.gif" width="700px">
