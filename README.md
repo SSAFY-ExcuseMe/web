@@ -11,12 +11,6 @@
 
 ### SSAFY 2024-1 파이널 관통 프로젝트 
 
-### 👩‍💻 팀원 소개
-
-|     팀원     |                       역할                        |
-| :---------: | :----------------------------------------------: | 
-|  [신민경](https://github.com/minggwen)  |     디자인, 프론트엔드 개발   |
-| [김지원](https://github.com/wonxxikim)  |  백엔드 개발  |
 
 ### 📆 개발 기간 
 > 2023.05(1개월)
@@ -48,14 +42,16 @@
 ### 🛠 사용 기술
 #### 백엔드
 - Java 17
-- Spring Boot 2.7.17
+<img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=white" />
 - MySQL 8.0
 
 #### 프론트엔드
-- Vue.js
+
+<img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=Vue.js&logoColor=white" />
 
 #### 디자인
-- Figma
+
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=white" />
 
 ### IA (Information Architecture)
 
