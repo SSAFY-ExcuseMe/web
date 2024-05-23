@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.excuseMe.route.mapper.RouteMapper">
+
+	<insert id="addRoute" parameterType="boardDto">
+		insert into tour_route (user_id, len, title)
+		values (#{user_id},
+		#{len}, #{title})
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			select
+			last_insert_id()
+		</selectKey>
+	</insert>
+
+	<insert id="addRouteList" parameterType="Object">
+		insert into tour_route_list (id, tour_id)
+		values
+		<foreach collection="list" item="tour_id" separator=",">
+			(#{routeId}, #{tour_id})
+		</foreach>
+	</insert>
+
+	<select id="myRouteList" parameterType="String" resultType="routeDto">
+		select *
+		from tour_route
+		where user_id = #{userId}
+	</select>
+
+	<select id="getRoute" parameterType="int" resultType="routeDto">
+		select *
+		from tour_route
+		where id = #{routeId}
+	</select>
+
+	<select id="getTourList" parameterType="int"
+		resultType="tourDto">
+		select *
+		from tour
+		where id in (select tour_id from tour_route_list where id = #{routeId})
+	</select>
+	
+	<delete id="deleteTourList" parameterType ="int">
+	delete 
+	from tour_route_list
+	where id = #{routeId}
+	</delete>
+	
+	<delete id="deleteRoute" parameterType = "int">
+	delete
+	from tour_route
+	where id = #{routeId}
+	</delete>
+</mapper>

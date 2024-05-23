@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.excuseMe.tour.mapper.TourMapper">
+	<select id="listTour" parameterType="map" resultType="tourDto">
+		select *
+		from tour
+		<where>
+			<if test="keyword != null and keyword !=''">
+				and name like concat('%', #{keyword}, '%')
+			</if>
+			<if test="region != null and region !=''">
+				and addr like concat('%', #{region}, '%')
+			</if>
+			<if test="type !=null and type!=''">
+				and type = #{type}
+			</if>
+		</where>
+		limit #{page}, 20
+
+	</select>
+	
+	<select id = "getTour" parameterType="int" resultType="tourDto">
+	select * 
+	from tour
+	where id = #{tourId}
+	</select>
+
+</mapper>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.excuseMe.board.mapper.BoardMapper">
+
+	<insert id="writeArticle" parameterType="boardDto">
+		insert into board (user_id, title, contents, view, `like`, created_date)
+		values (#{user_id}, #{title}, #{contents}, 0, 0, now())
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+	</insert>
+
+	<sql id="search">
+		<if test="word != null and word != ''">
+			<if test="key == 'contents'">
+				and contents like concat('%', #{word}, '%')
+			</if>
+			<if test="key == 'title'">
+				and title like concat('%', #{word}, '%')
+			</if>
+			<if test="key == 'user_id'">
+				and ${key} = #{word}
+			</if>
+		</if>
+	</sql>
+
+	<select id="listArticle" parameterType="map" resultType="boardDto">
+		select *
+		from board 
+		<include refid="search"></include>
+		order by id desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="mylistArticle" parameterType="map" resultType="boardDto">
+		select *
+		from board 
+		where user_id = #{user_id}
+		order by id desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="getTotalArticleCount" parameterType="map" resultType="int">
+		select count(id)
+		from board
+
+	</select>
+	
+	<select id="getArticle" parameterType="int" resultType="boardDto">
+		select * 
+		from board 
+		where id = #{articleNo}
+	</select>
+	
+	<select id ="getComment" parameterType = "int" resultType ="commentDto">
+	select * 
+	from comment 
+	where post_id = #{articleNo}
+	</select>
+
+	<update id="updateHit" parameterType="int">
+		update board
+		set view = view + 1
+		where id = #{articleNo}
+	</update>
+	
+	<update id="modifyArticle" parameterType="boardDto">
+		update board
+		set title = #{title}, contents = #{contents}
+		where id = #{id}
+	</update>
+	
+	
+	<delete id="deleteArticle" parameterType="int">
+		delete from board
+		where id = #{articleNo}
+	
+	</delete>
+	
+	<delete id="beforedeleteArticle" parameterType="int">
+		delete from comment
+		where post_id = #{articleNo}
+	</delete>
+	
+	<update id="likeHit" parameterType ="int">
+	update board
+	set `like` = `like`+1
+	where id = #{articleno}
+	</update>
+	
+	<select id ="check" parameterType = "Object" resultType ="int">
+	select count(*)
+	from board_like 
+	where board_id = #{articleno} and user_id = #{user_id}
+	</select>
+	
+	<insert id = "likeArticle" parameterType = "Object">
+	insert into board_like (user_id, board_id)
+	values (#{user_id}, #{articleno})
+	</insert>
+	
+	<insert id="writeComment" parameterType="commentDto">
+		insert into comment (post_id, user_id, contents, `like`, created_date)
+		values (#{post_id}, #{user_id}, #{contents}, 0, now())
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<delete id="deleteComment" parameterType="int">
+		delete from comment
+		where id = #{commentNo}
+	</delete>
+</mapper>
