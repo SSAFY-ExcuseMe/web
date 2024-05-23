@@ -25,7 +25,7 @@
 
 #### 3. 여행지에 대한 정보 및 후기 공유 게시판
 
-![저기요 시연영상](https://github.com/impactcampus-moija/moija/assets/75938496/fc2f7a2b-7195-4ef9-b5d8-5eb02de289e3)
+![저기요 시연영상]()
 
 
 ### 사용 기술
