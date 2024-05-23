@@ -2,7 +2,7 @@
 > 공공데이터를 활용한 여행 통합 플랫폼 🗺
 
 <p align="center">
-  <img src="" width="50%" >
+  <img src="docs/logo.png" width="50%" >
 </p>
 
 ## 프로젝트 소개
@@ -25,8 +25,9 @@
 
 #### 3. 여행지에 대한 정보 및 후기 공유 게시판
 
-![저기요 시연영상]()
-
+![저기요 시연영상1]<img src = "docs/main.gif">
+![저기요 시연영상2]<img src = "docs/tourlist.gif">
+![저기요 시연영상3]<img src = "docs/tour.gif">
 
 ### 사용 기술
 #### 백엔드
