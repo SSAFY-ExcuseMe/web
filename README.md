@@ -26,11 +26,21 @@
 #### 3. 여행지에 대한 정보 및 후기 공유 게시판
 
 
-### 저기요 시연
+### 시연
 
-<img src = "docs/main.gif" width="600px">
-<img src = "docs/tourlist.gif" width="600px">
-<img src = "docs/tour.gif" width="600px">
+#### 1. 메인화면
+
+<img src = "docs/main.gif" width="700px">
+
+#### 2. 여행지 검색
+
+<img src = "docs/tour.gif" width="700px">
+
+#### 3. 여행지 추천
+<img src = "docs/tourlist.gif" width="700px">
+
+
+
 
 ### 사용 기술
 #### 백엔드
