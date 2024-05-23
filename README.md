@@ -7,7 +7,7 @@
 
 ## 프로젝트 소개
 
-<img src="docs/ssafy.png" width="30%" >
+<img src="docs/ssafy.png" width="10%" >
 
 ### SSAFY 2024-1 파이널 관통 프로젝트 
 
